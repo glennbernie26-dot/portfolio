@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle">Dark Mode</button>
+  </nav>
+
+  
+  <div class="container">
+    <h1>Welcome to My Portfolio</h1>
+    <img src="barnie.jpg" alt="Me" width="250" class="image">
+
+    
+    <section class="editable-section" id="about">
+      <h2>Hi, Im Glenn Bernie Bilbao</h2>
+      <p id="aboutText" contenteditable="false">
+        Hello! I’m an aspiring web developer passionate about creating interactive and user-friendly websites.
+      </p>
+      <button class="edit-btn" id="editBtn">Edit</button>
+    </section>
+
+    <section class="editable-section" id="description">
+      <h2>Description</h2>
+      <p>
+        I’m a passionate web developer who loves turning ideas into interactive and visually appealing websites. I enjoy building user-friendly designs and writing clean, efficient code that brings creativity to life on the web.
+      </p>
+    </section>
+
+
+
+    
+  <section id="contact">
+  <h2>Contact</h2>
+  <p><strong>Email:</strong> Glennbernie26@gmail.com</p>
+  <p><strong>Number:</strong> 09636992083</p>
+  <p><strong>Facebook:</strong> Bernie Bilbao</p>
+</section>
+
+
+  <script>
+   
+    const themeToggle = document.getElementById("themeToggle");
+    const body = document.body;
+
+    themeToggle.addEventListener("click", () => {
+      body.classList.toggle("dark");
+      themeToggle.textContent = body.classList.contains("dark")
+        ? "Light Mode"
+        : "Dark Mode";
+    });
+
+    
+    const editBtn = document.getElementById("editBtn");
+    const aboutText = document.getElementById("aboutText");
+    let isEditing = false;
+
+    editBtn.addEventListener("click", () => {
+      isEditing = !isEditing;
+      aboutText.contentEditable = isEditing;
+      editBtn.textContent = isEditing ? "Save" : "Edit";
+      if (!isEditing) {
+        aboutText.blur(); 
+      }
+    });
+  </script>
+</body>
+</html>
